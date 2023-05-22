@@ -1,0 +1,82 @@
+%implements s4_b0_30z6_TLCInterface "C"
+
+%function getOutputAddr_3_0_0_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76dc6*//*@>76dc0*/Doan2_B./*@>76dcb*/SFunction"
+%endfunction
+
+%function getOutput_3_0_0_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76dd8*/Doan2_B./*@>76de4*/SFunction"
+%endfunction
+
+%function getDWorkAddr_3_0_0_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76df5*//*@>76def*/Doan2_DW./*@>76dfa*/SFunction_DSTATE"
+%endfunction
+
+%function getDWork_3_0_0_7_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76e07*/Doan2_DW./*@>76e13*/SFunction_DSTATE"
+%endfunction
+
+%function getParamAddr_3_0_0_7_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76e26*//*@>76e20*/Doan2_P./*@>76e2b*/SFunction_P1"
+%endfunction
+
+%function getParam_3_0_0_7_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76e38*/Doan2_P./*@>76e44*/SFunction_P1"
+%endfunction
+
+%function getParamAddr_3_0_0_7_1_16(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76e55*//*@>76e4f*/Doan2_P./*@>76e5a*/SFunction_P2"
+%endfunction
+
+%function getParam_3_0_0_7_1_16(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76e67*/Doan2_P./*@>76e73*/SFunction_P2"
+%endfunction
+
+%function getOutputAddr_3_0_0_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76eaa*//*@>76ea4*/Doan2_B./*@>76eaf*/SFunction"
+%endfunction
+
+%function getOutput_3_0_0_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76ebc*/Doan2_B./*@>76ec8*/SFunction"
+%endfunction
+
+%function getDWorkAddr_3_0_0_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76ed9*//*@>76ed3*/Doan2_DW./*@>76ede*/SFunction_DSTATE"
+%endfunction
+
+%function getDWork_3_0_0_9_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76eeb*/Doan2_DW./*@>76ef7*/SFunction_DSTATE"
+%endfunction
+
+%function getParamAddr_3_0_0_9_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76f0a*//*@>76f04*/Doan2_P./*@>76f0f*/SFunction_P1"
+%endfunction
+
+%function getParam_3_0_0_9_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76f1c*/Doan2_P./*@>76f28*/SFunction_P1"
+%endfunction
+
+%function getParamAddr_3_0_0_9_1_16(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&/*@<76f39*//*@>76f33*/Doan2_P./*@>76f3e*/SFunction_P2"
+%endfunction
+
+%function getParam_3_0_0_9_1_16(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "/*@>76f4b*/Doan2_P./*@>76f57*/SFunction_P2"
+%endfunction
+

@@ -1,0 +1,80 @@
+%implements s4_b0_30z6_ModelInitialize "C"
+
+%function ModelInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+codertarget_arduinobase_int_l_T *obj;
+%closefile localVarDecl
+%assign tlcInitializeConditionsFcnOfS3B0 = OpaqueTLCBlockFcn("InitializeConditions", 3, 0, 0, 9)
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+%<SLibCGIRDumpSystemUserCode(4, "Start", "Header")>\
+%<SLibCGIRDumpSystemUserCode(4, "Start", "Body")>\
+/* Start for MATLABSystem: '<Root>/PWM' */
+/*@>7648a*/Doan2_DW./*@>7749b*/obj./*@>77492*/matlabCodegenIsDeleted/*@>6e31d*/ = /*@>7477d*/true;
+%<SLibCG_DumpSSCode("/*@[76d8e*/",(SLibCGCallSubFcn("arduino_PWMOutput_arduino_PWMOu", ["&/*@>77522*/Doan2_DW./*@>77521*/obj"], 0, 9, 0)),"/*@]*/")>;
+/*@>74776*/obj/*@>6e362*/ = &/*@>76496*/Doan2_DW./*@>774a1*/obj;
+/*@>7649c*/Doan2_DW./*@>774a4*/obj./*@>7748f*/isSetupComplete/*@>6e364*/ = /*@>74772*/false;
+/*@>764a2*/Doan2_DW./*@>774a7*/obj./*@>7748c*/isInitialized/*@>6e368*/ = /*@>74cdb*/1L;
+/*@>7474a*/obj->/*@>77486*/MW_PWM_HANDLE/*@>6e3e9*/ = /*@>7608c*/MW_PWM_Open(/*@>74ce0*/5UL, /*@>7476f*/0.0, /*@>7476e*/0.0);
+/*@>7608e*/MW_PWM_Start(/*@>764a8*/Doan2_DW./*@>774aa*/obj.MW_PWM_HANDLE);
+/*@>764ae*/Doan2_DW./*@>774ad*/obj./*@>77489*/isSetupComplete/*@>6e381*/ = /*@>74771*/true;
+/* Start for MATLABSystem: '<S1>/Digital Output' */
+/*@>764b4*/Doan2_DW./*@>774b0*/obj_b./*@>77483*/matlabCodegenIsDeleted/*@>6e41a*/ = /*@>74766*/true;
+/*@>764ba*/Doan2_DW./*@>774b3*/obj_b./*@>7747d*/isInitialized/*@>6e4a7*/ = /*@>74cea*/0L;
+/*@>764c0*/Doan2_DW./*@>774b6*/obj_b./*@>77480*/matlabCodegenIsDeleted/*@>6e476*/ = /*@>74764*/false;
+/*@>764c6*/Doan2_DW./*@>774b9*/obj_b./*@>7747a*/isSetupComplete/*@>6e506*/ = /*@>7475e*/false;
+/*@>764cc*/Doan2_DW./*@>774bc*/obj_b./*@>77477*/isInitialized/*@>6e50a*/ = /*@>74cf3*/1L;
+/*@>76090*/digitalIOSetup(/*@>76565*/(uint8_T)/*@>76564*/Doan2_PinNumber, /*@>7475c*/true);
+/*@>764d2*/Doan2_DW./*@>774bf*/obj_b./*@>77474*/isSetupComplete/*@>6e523*/ = /*@>7475d*/true;
+/* Start for MATLABSystem: '<S2>/Digital Output' */
+/*@>764d8*/Doan2_DW./*@>774c2*/obj_k./*@>77471*/matlabCodegenIsDeleted/*@>6e596*/ = /*@>74757*/true;
+/*@>764de*/Doan2_DW./*@>774c5*/obj_k./*@>7746b*/isInitialized/*@>6e623*/ = /*@>74cfe*/0L;
+/*@>764e4*/Doan2_DW./*@>774c8*/obj_k./*@>7746e*/matlabCodegenIsDeleted/*@>6e5f2*/ = /*@>74755*/false;
+/*@>764ea*/Doan2_DW./*@>774cb*/obj_k./*@>77468*/isSetupComplete/*@>6e682*/ = /*@>7474f*/false;
+/*@>764f0*/Doan2_DW./*@>774ce*/obj_k./*@>77465*/isInitialized/*@>6e686*/ = /*@>74d07*/1L;
+/*@>76092*/digitalIOSetup(/*@>76568*/(uint8_T)/*@>76567*/Doan2_PinNumber_l, /*@>7474d*/true);
+/*@>764f6*/Doan2_DW./*@>774d1*/obj_k./*@>77462*/isSetupComplete/*@>6e69f*/ = /*@>7474e*/true;
+%<SLibCGIRDumpSystemUserCode(4, "Start", "Trailer")>\
+/* InitializeConditions for DiscreteIntegrator: '<S4>/Integrator' */
+/*@>764fc*/Doan2_DW./*@>774d4*/Integrator_DSTATE/*@>6e2be*/ = /*@>76422*/Doan2_P./*@>77495*/Integrator_IC;
+/* InitializeConditions for DiscreteIntegrator: '<S4>/Filter' */
+/*@>76502*/Doan2_DW./*@>774d7*/Filter_DSTATE/*@>6e2c0*/ = /*@>76428*/Doan2_P./*@>77498*/Filter_IC;
+%assign   SystemInitialize_open_HCSR04_4_1 = ""
+%openfile SystemInitialize_open_HCSR04_4_1
+
+/* SystemInitialize for Atomic SubSystem: '<S3>/HC-SR04' */
+%closefile SystemInitialize_open_HCSR04_4_1
+
+%assign    SystemInitialize_body_HCSR04_4_1 = ""
+%openfile  SystemInitialize_body_HCSR04_4_1
+
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS3B0)
+/* InitializeConditions for S-Function (driver_HC_SR04_sfcn): '<S5>/S-Function' */
+%<SLibCG_DumpSSCode("/*@[76be8*/",tlcInitializeConditionsFcnOfS3B0,"/*@]*/")>\
+%endif
+%closefile SystemInitialize_body_HCSR04_4_1
+
+%assign    SystemInitialize_close_HCSR04_4_1 = ""
+%openfile  SystemInitialize_close_HCSR04_4_1
+
+/* End of SystemInitialize for SubSystem: '<S3>/HC-SR04' */
+%closefile SystemInitialize_close_HCSR04_4_1
+%<SLibCG_DumpSSCode(SystemInitialize_open_HCSR04_4_1, SystemInitialize_body_HCSR04_4_1, SystemInitialize_close_HCSR04_4_1)>
+
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedModelInitializeLocalVars", localVarDecl)>
+%endfunction
+%function ModelInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ModelInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 9, fcnProtoType)>
+%endfunction

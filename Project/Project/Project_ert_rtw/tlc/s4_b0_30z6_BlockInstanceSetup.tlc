@@ -1,0 +1,10 @@
+%implements s4_b0_30z6_BlockInstanceSetup "C"
+
+%function BlockInstanceSetup(block, system) Output
+%% Subsystems with iterators in IR:
+%% TLC Block Registration buffer:
+%<LibAddToCommonIncludes("MW_PWM.h")>
+%<LibAddToCommonIncludes("MW_digitalio.h")>
+%<LibAddToCommonIncludes("MW_digitalio.h")>
+%% END  Block Registration buffer
+%endfunction

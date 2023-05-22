@@ -1,0 +1,195 @@
+%implements s4_b0_30z6_Functions "C"
+
+%function SystemProp_matlabCodegenSetAnyP_Fcn0(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+/*@>74882*/obj->/*@>76f66*/matlabCodegenIsDeleted/*@>63d0c*/ = /*@>74880*/value;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemProp_matlabCodegenSetAnyP(\
+%assign comma = ""
+%<comma>codertarget_arduinobase_int_l_T *obj\
+%assign comma = ", "
+%<comma>boolean_T value\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function Doan2_SystemCore_release_Fcn1(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+/*@>6327b*/if ((/*@>74863*/obj->isInitialized/*@>63357*/ == /*@>74d84*/1L)/*@>7604e*/ && /*@>74869*/obj->isSetupComplete) {
+    /*@>76098*/MW_PWM_SetDutyCycle(/*@>7486b*/obj->MW_PWM_HANDLE, /*@>74d89*/0);
+}
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Doan2_SystemCore_release(\
+%assign comma = ""
+%<comma>const codertarget_arduinobase_int_l_T *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function Doan2_SystemCore_delete_Fcn2(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign _modelSS = ""
+
+%if SLibCG_FcnCallArgAccessed(0,2,0,0)
+%<SLibCG_AccessArg(0 ,2, 0)>
+%endif
+
+%<SLibCG_DumpSSCode("/*@[76ceb*/",(SLibCGCallSubFcn("Doan2_SystemCore_release", ["/*@>76fd1*/obj"], 0, 2, 0)),"/*@]*/")>;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Doan2_SystemCore_delete(\
+%assign comma = ""
+%<comma>const codertarget_arduinobase_int_l_T *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function matlabCodegenHandle_matlabCodeg_Fcn3(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign _modelSS = ""
+
+%if SLibCG_FcnCallArgAccessed(0,3,1,0)
+%<SLibCG_AccessArg(0 ,3, 0)>
+%endif
+
+%if SLibCG_FcnCallArgAccessed(0,3,0,0)
+%<SLibCG_AccessArg(0 ,3, 0)>
+%endif
+
+/*@>63acf*/if (!/*@<63b33*//*@>74874*/obj->matlabCodegenIsDeleted) {
+    %<SLibCG_DumpSSCode("/*@[76d03*/",(SLibCGCallSubFcn("SystemProp_matlabCodegenSetAnyP", ["/*@>77010*/obj", "/*@>7701a*/true"], 0, 3, 0)),"/*@]*/")>;
+    %<SLibCG_DumpSSCode("/*@[76d1a*/",(SLibCGCallSubFcn("Doan2_SystemCore_delete", ["/*@>77024*/obj"], 0, 3, 1)),"/*@]*/")>;
+}
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void matlabCodegenHandle_matlabCodeg(\
+%assign comma = ""
+%<comma>codertarget_arduinobase_int_l_T *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function SystemProp_matlabCodegenSetAn_l_Fcn4(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+/*@>74899*/obj->/*@>77049*/matlabCodegenIsDeleted/*@>1f058*/ = /*@>74897*/value;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemProp_matlabCodegenSetAn_l(\
+%assign comma = ""
+%<comma>codertarget_arduinobase_block_T *obj\
+%assign comma = ", "
+%<comma>boolean_T value\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 4, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function matlabCodegenHandle_matlabCod_l_Fcn5(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign _modelSS = ""
+
+%if SLibCG_FcnCallArgAccessed(0,5,0,0)
+%<SLibCG_AccessArg(0 ,5, 0)>
+%endif
+
+/*@>1ee2d*/if (!/*@<1ee8b*//*@>7488b*/obj->matlabCodegenIsDeleted) {
+    %<SLibCG_DumpSSCode("/*@[76d32*/",(SLibCGCallSubFcn("SystemProp_matlabCodegenSetAn_l", ["/*@>77073*/obj", "/*@>7707d*/true"], 0, 5, 0)),"/*@]*/")>;
+}
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void matlabCodegenHandle_matlabCod_l(\
+%assign comma = ""
+%<comma>codertarget_arduinobase_block_T *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 5, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function arduino_PWMOutput_arduino_PWMOu_Fcn6(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+codertarget_arduinobase_int_l_T *b_obj;
+/*@>747ca*/obj->/*@>7713a*/isInitialized/*@>66cd9*/ = /*@>74d2a*/0L;
+/*@>747c8*/b_obj/*@>66d71*/ = /*@>747cc*/obj;
+/*@>747d0*/obj->/*@>77140*/Hw./*@>7713d*/AvailablePwmPinNames./*@>77143*/f1/*@>7280b*/ = /*@>747f8*/'2';
+/*@>747d5*/obj->/*@>77149*/Hw./*@>77146*/AvailablePwmPinNames./*@>7714c*/f2/*@>7281a*/ = /*@>747f9*/'3';
+/*@>747da*/obj->/*@>77152*/Hw./*@>7714f*/AvailablePwmPinNames./*@>77155*/f3/*@>72829*/ = /*@>747fa*/'4';
+/*@>747df*/obj->/*@>7715b*/Hw./*@>77158*/AvailablePwmPinNames./*@>7715e*/f4/*@>72838*/ = /*@>747fb*/'5';
+/*@>747e4*/obj->/*@>77164*/Hw./*@>77161*/AvailablePwmPinNames./*@>77167*/f5/*@>72847*/ = /*@>747fc*/'6';
+/*@>747e9*/obj->/*@>7716d*/Hw./*@>7716a*/AvailablePwmPinNames./*@>77170*/f6/*@>72856*/ = /*@>747fd*/'7';
+/*@>747ee*/obj->/*@>77176*/Hw./*@>77173*/AvailablePwmPinNames./*@>77179*/f7/*@>72865*/ = /*@>747fe*/'8';
+/*@>747f3*/obj->/*@>7717f*/Hw./*@>7717c*/AvailablePwmPinNames./*@>77182*/f8/*@>72874*/ = /*@>747ff*/'9';
+/*@>74800*/obj->/*@>7718b*/Hw./*@>77188*/AvailablePwmPinNames./*@>77185*/f9/*@>7412a*/[/*@>74807*/0]/*@>74129*/ = /*@>74d14*/'1';
+/*@>74809*/obj->/*@>77194*/Hw./*@>77191*/AvailablePwmPinNames./*@>7718e*/f9/*@>7413f*/[/*@>74810*/1]/*@>7413e*/ = /*@>74d16*/'0';
+/*@>74815*/obj->/*@>7719d*/Hw./*@>7719a*/AvailablePwmPinNames./*@>77197*/f10/*@>7415a*/[/*@>7481b*/0]/*@>74159*/ = /*@>7481a*/'1';
+/*@>7481c*/obj->/*@>771a6*/Hw./*@>771a3*/AvailablePwmPinNames./*@>771a0*/f10/*@>7416a*/[/*@>74822*/1]/*@>74169*/ = /*@>74821*/'1';
+/*@>74826*/obj->/*@>771af*/Hw./*@>771ac*/AvailablePwmPinNames./*@>771a9*/f11/*@>74180*/[/*@>7482d*/0]/*@>7417f*/ = /*@>74d18*/'1';
+/*@>7482f*/obj->/*@>771b8*/Hw./*@>771b5*/AvailablePwmPinNames./*@>771b2*/f11/*@>74195*/[/*@>74836*/1]/*@>74194*/ = /*@>74d1a*/'2';
+/*@>7483b*/obj->/*@>771c1*/Hw./*@>771be*/AvailablePwmPinNames./*@>771bb*/f12/*@>741b0*/[/*@>74842*/0]/*@>741af*/ = /*@>74d1c*/'1';
+/*@>74844*/obj->/*@>771ca*/Hw./*@>771c7*/AvailablePwmPinNames./*@>771c4*/f12/*@>741c5*/[/*@>7484b*/1]/*@>741c4*/ = /*@>74d1e*/'3';
+/*@>747ce*/obj->matlabCodegenIsDeleted = false;
+return b_obj;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static codertarget_arduinobase_int_l_T *arduino_PWMOutput_arduino_PWMOu(\
+%assign comma = ""
+%<comma>codertarget_arduinobase_int_l_T *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 6, fcnProtoType)>
+%return fcnBuff
+%endfunction
+

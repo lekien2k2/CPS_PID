@@ -1,0 +1,23 @@
+%implements s4_b0_30z6_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+/* Terminate for MATLABSystem: '<Root>/PWM' */
+%<SLibCG_DumpSSCode("/*@[76d49*/",(SLibCGCallSubFcn("matlabCodegenHandle_matlabCodeg", ["&/*@>773b4*/Doan2_DW./*@>773b3*/obj"], 0, 8, 0)),"/*@]*/")>;
+/* Terminate for MATLABSystem: '<S1>/Digital Output' */
+%<SLibCG_DumpSSCode("/*@[76d60*/",(SLibCGCallSubFcn("matlabCodegenHandle_matlabCod_l", ["&/*@>773c1*/Doan2_DW./*@>773c0*/obj_b"], 0, 8, 1)),"/*@]*/")>;
+/* Terminate for MATLABSystem: '<S2>/Digital Output' */
+%<SLibCG_DumpSSCode("/*@[76d77*/",(SLibCGCallSubFcn("matlabCodegenHandle_matlabCod_l", ["&/*@>773ce*/Doan2_DW./*@>773cd*/obj_k"], 0, 8, 2)),"/*@]*/")>;
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 8, fcnProtoType)>
+%endfunction

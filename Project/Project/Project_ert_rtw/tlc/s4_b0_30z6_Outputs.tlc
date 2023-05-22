@@ -1,0 +1,139 @@
+%implements s4_b0_30z6_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+real_T rtb_Sum_h;
+real_T rtb_Sum;
+real_T rtb_FilterCoefficient;
+real_T y;
+uint8_T tmp;
+%closefile localVarDecl
+%assign tlcOutputsFcnOfS3B0 = OpaqueTLCBlockFcn("Outputs", 3, 0, 0, 7)
+%assign tlcUpdateFcnOfS3B0 = OpaqueTLCBlockFcn("Update", 3, 0, 0, 7)
+%<SLibGenerateExtModeOutput(system)>
+%assign   Outputs_open_HCSR04_4_1 = ""
+%openfile Outputs_open_HCSR04_4_1
+
+/* Outputs for Atomic SubSystem: '<S3>/HC-SR04' */
+%closefile Outputs_open_HCSR04_4_1
+
+%assign    Outputs_body_HCSR04_4_1 = ""
+%openfile  Outputs_body_HCSR04_4_1
+
+%if !WHITE_SPACE(tlcOutputsFcnOfS3B0)
+/* S-Function (driver_HC_SR04_sfcn): '<S5>/S-Function' */
+%<SLibCG_DumpSSCode("/*@[76b8f*/",tlcOutputsFcnOfS3B0,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcUpdateFcnOfS3B0)
+/* Update for S-Function (driver_HC_SR04_sfcn): '<S5>/S-Function' */
+%<SLibCG_DumpSSCode("/*@[76b94*/",tlcUpdateFcnOfS3B0,"/*@]*/")>\
+%endif
+%closefile Outputs_body_HCSR04_4_1
+
+%assign    Outputs_close_HCSR04_4_1 = ""
+%openfile  Outputs_close_HCSR04_4_1
+
+/* End of Outputs for SubSystem: '<S3>/HC-SR04' */
+%closefile Outputs_close_HCSR04_4_1
+%<SLibCG_DumpSSCode(Outputs_open_HCSR04_4_1, Outputs_body_HCSR04_4_1, Outputs_close_HCSR04_4_1)>
+
+
+/* Sum: '<Root>/Add' incorporates:
+ *  Constant: '<Root>/Constant1'
+ */
+/*@>76349*/Doan2_B./*@>772c0*/Add/*@>6e8e4*/ = /*@>763b0*/Doan2_P./*@>772db*/Constant1_Value/*@>6e8e1*/ - /*@>74c7e*/(real_T)/*@>7634f*/Doan2_B./*@>772c3*/SFunction;
+/* Sum: '<Root>/Sum' incorporates:
+ *  Constant: '<Root>/Constant'
+ */
+/*@>74699*/rtb_Sum/*@>6e8e9*/ = /*@>763b6*/Doan2_P./*@>772de*/Constant_Value/*@>6e8e6*/ - /*@>76355*/Doan2_B./*@>772c6*/Add;
+/* Gain: '<S4>/Filter Coefficient' incorporates:
+ *  DiscreteIntegrator: '<S4>/Filter'
+ *  Gain: '<S4>/Derivative Gain'
+ *  Sum: '<S4>/SumD'
+ */
+/*@>746dd*/rtb_FilterCoefficient/*@>6d8d6*/ = (/*@>763bc*/Doan2_P./*@>772e1*/PIDController_D/*@>74993*/ * /*@>746f7*/rtb_Sum/*@>72969*/ - /*@>7644e*/Doan2_DW./*@>77314*/Filter_DSTATE)/*@>7498f*/ * /*@>763c2*/Doan2_P./*@>772e4*/PIDController_N;
+/* Sum: '<S4>/Sum' incorporates:
+ *  DiscreteIntegrator: '<S4>/Integrator'
+ *  Gain: '<S4>/Proportional Gain'
+ */
+/*@>74697*/rtb_Sum_h/*@>6e8f4*/ = (/*@>763c8*/Doan2_P./*@>772e7*/PIDController_P/*@>7498b*/ * /*@>746ef*/rtb_Sum/*@>6e8f0*/ + /*@>76454*/Doan2_DW./*@>77317*/Integrator_DSTATE)/*@>6e8f1*/ + /*@>746db*/rtb_FilterCoefficient;
+/* Saturate: '<S4>/Saturate' */
+/*@>756c3*/if (/*@>7531b*/rtb_Sum_h/*@>74f97*/ > /*@>763ce*/Doan2_P./*@>772ea*/PIDController_UpperSaturationLi) {
+    /*@>7635b*/Doan2_B./*@>772c9*/Saturate/*@>756c6*/ = /*@>763da*/Doan2_P./*@>772f0*/PIDController_UpperSaturationLi;
+} else /*@>756cd*/if (/*@>75321*/rtb_Sum_h/*@>74f94*/ < /*@>763d4*/Doan2_P./*@>772ed*/PIDController_LowerSaturationLi) {
+    /*@>76367*/Doan2_B./*@>772cf*/Saturate/*@>756d0*/ = /*@>763e0*/Doan2_P./*@>772f3*/PIDController_LowerSaturationLi;
+} else {
+    /*@>76361*/Doan2_B./*@>772cc*/Saturate/*@>74f9e*/ = /*@>75327*/rtb_Sum_h;
+}
+/* End of Saturate: '<S4>/Saturate' */
+
+/* MATLABSystem: '<Root>/PWM' */
+/*@>756c8*/if (/*@>7636d*/Doan2_B./*@>772d2*/Saturate/*@>74f14*/ < /*@>75140*/255.0) {
+    /*@>756cc*/y/*@>756cb*/ = /*@>76373*/Doan2_B./*@>772d5*/Saturate;
+} else {
+    /*@>74f27*/y/*@>74f1d*/ = /*@>75144*/255.0;
+}
+/*@>756ea*/if (!/*@<7602f*/(/*@>7534c*/y/*@>7534a*/ > /*@>7534d*/0.0)) {
+    /*@>756d3*/y/*@>756d5*/ = /*@>75350*/0.0;
+}
+/*@>7607a*/MW_PWM_SetDutyCycle(/*@>7645a*/Doan2_DW./*@>7731a*/obj.MW_PWM_HANDLE, /*@>756d7*/y);
+/* End of MATLABSystem: '<Root>/PWM' */
+
+/* DataTypeConversion: '<S1>/Data Type Conversion' incorporates:
+ *  Constant: '<Root>/Constant2'
+ */
+/*@>756ef*/if (/*@>763e6*/Doan2_P./*@>772f6*/Constant2_Value/*@>75353*/ < /*@>75356*/256.0) {
+    /*@>756f9*/if (/*@>763ec*/Doan2_P./*@>772f9*/Constant2_Value/*@>75358*/ >= /*@>7535b*/0.0) {
+        /*@>756fd*/tmp/*@>756fc*/ = /*@>7535c*/(uint8_T)/*@>763f2*/Doan2_P./*@>772fc*/Constant2_Value;
+    } else {
+        /*@>756f3*/tmp/*@>756f2*/ = /*@>771ed*/0U;
+    }
+} else {
+    /*@>756db*/tmp/*@>756dd*/ = /*@>75360*/MAX_uint8_T;
+}
+/* End of DataTypeConversion: '<S1>/Data Type Conversion' */
+
+/* MATLABSystem: '<S1>/Digital Output' */
+/*@>7607c*/writeDigitalPin(/*@>7655d*/(uint8_T)/*@>7655c*/Doan2_PinNumber, /*@>756df*/tmp);
+/* DataTypeConversion: '<S2>/Data Type Conversion' incorporates:
+ *  Constant: '<Root>/Constant3'
+ */
+/*@>756f4*/if (/*@>763f8*/Doan2_P./*@>772ff*/Constant3_Value/*@>75363*/ < /*@>75366*/256.0) {
+    /*@>756fe*/if (/*@>763fe*/Doan2_P./*@>77302*/Constant3_Value/*@>75368*/ >= /*@>7536b*/0.0) {
+        /*@>75702*/tmp/*@>75701*/ = /*@>7536c*/(uint8_T)/*@>76404*/Doan2_P./*@>77305*/Constant3_Value;
+    } else {
+        /*@>756f8*/tmp/*@>756f7*/ = /*@>771f0*/0U;
+    }
+} else {
+    /*@>756e3*/tmp/*@>756e5*/ = /*@>75370*/MAX_uint8_T;
+}
+/* End of DataTypeConversion: '<S2>/Data Type Conversion' */
+
+/* MATLABSystem: '<S2>/Digital Output' */
+/*@>7607e*/writeDigitalPin(/*@>76560*/(uint8_T)/*@>7655f*/Doan2_PinNumber_l, /*@>756e7*/tmp);
+/* Update for DiscreteIntegrator: '<S4>/Integrator' incorporates:
+ *  Gain: '<S4>/Integral Gain'
+ *  Gain: '<S4>/Kb'
+ *  Sum: '<S4>/SumI1'
+ *  Sum: '<S4>/SumI2'
+ */
+/*@>76460*/Doan2_DW./*@>7731d*/Integrator_DSTATE/*@>771fc*/ += ((/*@>76379*/Doan2_B./*@>772d8*/Saturate/*@>729cc*/ - /*@>74701*/rtb_Sum_h)/*@>748f6*/ * /*@>7640a*/Doan2_P./*@>77308*/PIDController_Kb/*@>72993*/ + /*@>76410*/Doan2_P./*@>7730b*/PIDController_I/*@>748f2*/ * /*@>746fb*/rtb_Sum)/*@>748ee*/ * /*@>76416*/Doan2_P./*@>7730e*/Integrator_gainval;
+/* Update for DiscreteIntegrator: '<S4>/Filter' */
+/*@>7646c*/Doan2_DW./*@>77320*/Filter_DSTATE/*@>771fd*/ += /*@>7641c*/Doan2_P./*@>77311*/Filter_gainval/*@>748ea*/ * /*@>746a7*/rtb_FilterCoefficient;
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 7, fcnProtoType)>
+%endfunction
